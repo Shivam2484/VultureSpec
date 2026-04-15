@@ -1,21 +1,16 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background: #050816;
   color: white;
-  overflow-x: hidden;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-}
-
+/* NAV */
 .nav {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
@@ -23,9 +18,10 @@ a {
 
 .nav a {
   margin: 0 10px;
+  color: white;
+  text-decoration: none;
   padding: 8px 14px;
   border-radius: 20px;
-  transition: 0.3s;
 }
 
 .nav a:hover {
@@ -33,35 +29,38 @@ a {
   color: black;
 }
 
+/* HERO */
 .hero {
   height: 90vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  flex-direction: column;
-  background: radial-gradient(circle at top, #00d4ff33, transparent),
-              radial-gradient(circle at bottom, #ff00ff22, transparent);
+
+  background: radial-gradient(circle at top, #1aa7ff33, transparent),
+              radial-gradient(circle at bottom, #7b2ff733, transparent);
 }
 
-h1 {
+.hero h1 {
   font-size: 50px;
   animation: float 4s ease-in-out infinite;
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
 }
 
+/* BUTTON */
 .btn {
+  display: inline-block;
   padding: 12px 25px;
   background: white;
   color: black;
   border-radius: 30px;
-  margin-top: 20px;
-  display: inline-block;
+  margin: 10px;
   transition: 0.3s;
 }
 
@@ -69,18 +68,31 @@ h1 {
   transform: scale(1.1);
 }
 
+.outline {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+/* SECTIONS */
 .section {
   padding: 80px 40px;
   text-align: center;
 }
 
+/* CARDS */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .card {
   background: rgba(255,255,255,0.05);
   padding: 20px;
+  margin: 15px;
   border-radius: 20px;
-  margin: 20px;
-  display: inline-block;
-  width: 250px;
+  width: 220px;
   transition: 0.3s;
 }
 
