@@ -1,0 +1,21 @@
+/* Vulture Spec — premium SaaS layer */
+:root{--saas-accent:#c9a24b;--saas-line:rgba(255,255,255,.09)}
+body{background:radial-gradient(circle at 78% 0%,rgba(201,162,75,.08),transparent 30%),#08090b}
+.nav{background:rgba(8,9,11,.68);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%)}
+.nav.scrolled{box-shadow:0 14px 50px rgba(0,0,0,.2)}
+.brand{letter-spacing:-.05em}.nav-links a{font-size:13px}
+.btn{border-radius:11px;min-height:46px}.btn-primary{box-shadow:0 12px 35px rgba(0,0,0,.24)}
+.hero h1,.page-head h1{letter-spacing:-.065em}.hero-visual svg{border-radius:20px;box-shadow:0 30px 90px rgba(0,0,0,.32)}
+.strip-tag{border-radius:999px;transition:all .25s ease}.strip-tag:hover{border-color:rgba(201,162,75,.32);background:rgba(201,162,75,.1)}
+.principles,.service-items,.workflow{border-radius:16px;overflow:hidden}.principle,.card,.portfolio-card,.case-card{background:linear-gradient(145deg,rgba(255,255,255,.027),rgba(255,255,255,.008))}
+.principle:hover,.card:hover,.portfolio-card:hover,.case-card:hover{border-color:rgba(255,255,255,.18)}
+.stage-detail{background:linear-gradient(135deg,rgba(255,255,255,.028),rgba(201,162,75,.035))}
+.service-group-head{padding:30px 0}.service-item{transition:background .25s ease}.service-item:hover{background:#15181d}
+.cta-band{box-shadow:0 30px 90px rgba(0,0,0,.26)}
+.contact-grid form,#contact-form{box-shadow:0 25px 80px rgba(0,0,0,.25)}
+.form-field input,.form-field select,.form-field textarea{border-radius:11px}
+.footer{background:#07080a}
+@media(max-width:1100px){.hero-grid{gap:48px}.hero-visual{width:100%}}
+@media(max-width:760px){.container{width:calc(100% - 32px)}.hero{padding-top:122px}.page-head{padding-top:124px}.hero h1,.page-head h1{letter-spacing:-.06em}.service-group-head{padding:24px 0}.cta-band{box-shadow:none}.footer-top{gap:34px 22px}}
+@media(max-width:420px){.container{width:calc(100% - 24px)}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
