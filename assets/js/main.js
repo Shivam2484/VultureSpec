@@ -1,3 +1,13 @@
+(() => {
+  if (!document.querySelector('link[data-saas-layer]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'assets/css/saas.css';
+    link.dataset.saasLayer = 'true';
+    document.head.appendChild(link);
+  }
+})();
+
 document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -78,9 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     filters.forEach(item => item.classList.remove('active', 'is-active'));
     button.classList.add('active');
     const value = button.dataset.filter || 'all';
-    cards.forEach(card => {
-      card.style.display = value === 'all' || card.dataset.category === value ? '' : 'none';
-    });
+    cards.forEach(card => { card.style.display = value === 'all' || card.dataset.category === value ? '' : 'none'; });
   }));
 
   const form = document.querySelector('#contact-form');
