@@ -3,10 +3,30 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Load the premium SaaS visual layer directly on every page.
+  if (!document.querySelector('link[data-saas-theme]')) {
+    const theme = document.createElement('link');
+    theme.rel = 'stylesheet';
+    theme.href = 'assets/css/saas.css?v=20260906';
+    theme.dataset.saasTheme = 'true';
+    document.head.appendChild(theme);
+  }
+
+  // Add the internal Team/CRM destination consistently to desktop and mobile navigation.
+  const addTeamLink = selector => {
+    document.querySelectorAll(selector).forEach(list => {
+      if (list.querySelector('a[href="team.html"]')) return;
+      const li = document.createElement('li');
+      li.innerHTML = '<a href="team.html">Team</a>';
+      list.appendChild(li);
+    });
+  };
+  addTeamLink('.nav-links');
+  addTeamLink('.mobile-menu-links');
+
   const WHATSAPP = '919987952052';
   const whatsappUrl = (text = 'Hello Vulture Spec, I would like to discuss my business.') => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
 
-  // Global WhatsApp action: works without pop-up blockers and keeps the number consistent everywhere.
   if (!document.querySelector('.whatsapp-float')) {
     const wa = document.createElement('a');
     wa.className = 'whatsapp-float';
@@ -123,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Normalize all WhatsApp links to the requested business number.
   document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(link => {
     const label = link.textContent.trim().toLowerCase();
     const message = label.includes('whatsapp') ? 'Hello Vulture Spec, I would like to connect on WhatsApp.' : '';
