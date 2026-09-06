@@ -1,16 +1,23 @@
 (() => {
-  if (!document.querySelector('link[data-saas-layer]')) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'assets/css/saas.css';
-    link.dataset.saasLayer = 'true';
-    document.head.appendChild(link);
-  }
+  document.documentElement.classList.add('js');
 })();
 
-document.documentElement.classList.add('js');
-
 document.addEventListener('DOMContentLoaded', () => {
+  const WHATSAPP = '919987952052';
+  const whatsappUrl = (text = 'Hello Vulture Spec, I would like to discuss my business.') => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+  // Global WhatsApp action: works without pop-up blockers and keeps the number consistent everywhere.
+  if (!document.querySelector('.whatsapp-float')) {
+    const wa = document.createElement('a');
+    wa.className = 'whatsapp-float';
+    wa.href = whatsappUrl();
+    wa.target = '_blank';
+    wa.rel = 'noopener noreferrer';
+    wa.setAttribute('aria-label', 'Chat with Vulture Spec on WhatsApp');
+    wa.innerHTML = '<span aria-hidden="true"></span> WhatsApp';
+    document.body.appendChild(wa);
+  }
+
   const nav = document.querySelector('.nav');
   const syncNav = () => nav?.classList.toggle('scrolled', window.scrollY > 12);
   syncNav();
@@ -112,9 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
         `Message: ${data.get('message') || ''}`
       ].join('\n');
       if (status) status.textContent = 'Opening WhatsApp with your enquiry…';
-      window.open(`https://wa.me/919987952052?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+      window.location.href = whatsappUrl(message);
     });
   }
+
+  // Normalize all WhatsApp links to the requested business number.
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(link => {
+    const label = link.textContent.trim().toLowerCase();
+    const message = label.includes('whatsapp') ? 'Hello Vulture Spec, I would like to connect on WhatsApp.' : '';
+    link.href = whatsappUrl(message);
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  });
 
   const path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a, .mobile-menu-links a').forEach(link => {
