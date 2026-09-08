@@ -35,3 +35,15 @@ input:focus,select:focus,textarea:focus{border-color:#62adff!important;box-shado
 @media(max-width:760px){.nav{width:calc(100% - 20px);top:10px}.hero{padding-top:150px}.hero-grid{grid-template-columns:1fr;gap:38px}.hero h1{font-size:clamp(44px,13vw,64px)}.container{width:min(calc(100% - 32px),var(--max))}.principles,.about-cols,.portfolio-grid{grid-template-columns:1fr}.stages{grid-template-columns:1fr 1fr}.stage{border-right:0;border-bottom:1px solid var(--line)}.stage:last-child{border-bottom:0}.contact-grid,.ooh-grid{grid-template-columns:1fr}.form-row,.form-grid{grid-template-columns:1fr}}
 @media(max-width:420px){.hero-ctas .btn{width:100%}.stages{grid-template-columns:1fr}.nav-cta{display:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Final brand polish: exact supplied emblem + high-contrast ecosystem */
+.brand-mark{width:34px;height:34px;background:url('../img/vulture-spec-logo.webp') center/contain no-repeat;border-radius:8px;overflow:hidden}
+.ecosystem{padding:34px;filter:drop-shadow(0 25px 60px rgba(0,0,0,.28))}
+.ecosystem svg{filter:brightness(0) invert(1) drop-shadow(0 0 18px rgba(128,193,255,.18));opacity:.94}
+.ecosystem svg text{fill:#fff!important}
+.ecosystem svg path,.ecosystem svg line,.ecosystem svg polyline{stroke:#dff0ff!important}
+.ecosystem svg circle,.ecosystem svg rect{stroke:#dff0ff!important;fill:rgba(255,255,255,.035)!important}
+.ecosystem:after{content:"";position:absolute;inset:14% 18%;pointer-events:none;background:radial-gradient(circle,rgba(95,174,255,.16),rgba(255,157,87,.07) 38%,transparent 68%);filter:blur(38px);z-index:-1}
+.card,.portfolio-card,.contact-grid>form,.contact-form{backdrop-filter:blur(16px)}
+.section-head h2,.page-head h1{background:linear-gradient(105deg,#fff 0%,#dceeff 58%,#ffbf91 120%);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:760px){.ecosystem{padding:10px}.brand-mark{width:30px;height:30px}}
