@@ -3,16 +3,21 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Load the premium SaaS visual layer directly on every page.
   if (!document.querySelector('link[data-saas-theme]')) {
     const theme = document.createElement('link');
     theme.rel = 'stylesheet';
-    theme.href = 'assets/css/saas.css?v=20260906';
+    theme.href = 'assets/css/saas.css?v=20260911';
     theme.dataset.saasTheme = 'true';
     document.head.appendChild(theme);
   }
 
-  // Add the internal Team/CRM destination consistently to desktop and mobile navigation.
+  // Keep the exact supplied Vulture Spec emblem as the visible brand mark and favicon source.
+  const icon = document.querySelector('link[rel="icon"]');
+  if (icon) {
+    icon.href = 'assets/img/favicon.svg?v=20260911';
+    icon.type = 'image/svg+xml';
+  }
+
   const addTeamLink = selector => {
     document.querySelectorAll(selector).forEach(list => {
       if (list.querySelector('a[href="team.html"]')) return;
@@ -36,6 +41,44 @@ document.addEventListener('DOMContentLoaded', () => {
     wa.setAttribute('aria-label', 'Chat with Vulture Spec on WhatsApp');
     wa.innerHTML = '<span aria-hidden="true"></span> WhatsApp';
     document.body.appendChild(wa);
+  }
+
+  // Replace the generic hero diagram with a cleaner product-style SaaS growth interface.
+  const heroVisual = document.querySelector('.hero-visual');
+  if (heroVisual) {
+    heroVisual.innerHTML = `
+      <div class="hero-dashboard" aria-label="Vulture Spec digital growth system">
+        <div class="dashboard-top"><span class="dashboard-kicker">Vulture Spec / Growth system</span><span class="dashboard-status">Connected ecosystem</span></div>
+        <div class="dashboard-title">One system for <span>digital growth.</span></div>
+        <div class="dashboard-flow">
+          <div class="flow-card accent"><strong>Strategy</strong><span>Direction & positioning</span></div>
+          <div class="flow-card"><strong>Creative</strong><span>Content & campaigns</span></div>
+          <div class="flow-card"><strong>Channels</strong><span>Ads, social & influencers</span></div>
+          <div class="flow-card"><strong>Technology</strong><span>Web, CRM & commerce</span></div>
+        </div>
+        <div class="dashboard-line"></div>
+        <div class="dashboard-flow" style="margin-top:10px">
+          <div class="flow-card"><strong>Measure</strong><span>Signals, data & learning</span></div>
+          <div class="flow-card accent"><strong>Optimize</strong><span>Refine what moves growth</span></div>
+        </div>
+      </div>`;
+  }
+
+  // Replace the old radial web chart with a premium, readable SaaS ecosystem map.
+  const ecosystem = document.querySelector('.ecosystem');
+  if (ecosystem) {
+    ecosystem.innerHTML = `
+      <div class="eco-board" role="img" aria-label="Vulture Spec digital ecosystem connecting social media, advertising, influencers, SEO, websites, CRM, e-commerce, WhatsApp and analytics">
+        <div class="eco-node"><small>Reach</small><strong>Social Media</strong><span>Content, presence & community</span></div>
+        <div class="eco-node"><small>Campaigns</small><strong>Advertising</strong><span>Paid media & audience growth</span></div>
+        <div class="eco-node"><small>Trust</small><strong>Influencers</strong><span>Creator-led discovery</span></div>
+        <div class="eco-node eco-core"><div><strong>VULTURE SPEC</strong><em>One connected growth system</em></div></div>
+        <div class="eco-node"><small>Discover</small><strong>SEO</strong><span>Search visibility & intent</span></div>
+        <div class="eco-node"><small>Convert</small><strong>Website</strong><span>Digital experience & conversion</span></div>
+        <div class="eco-node"><small>Commerce</small><strong>E-commerce</strong><span>Marketplace & online selling</span></div>
+        <div class="eco-node"><small>Retain</small><strong>CRM</strong><span>Customer relationships & workflow</span></div>
+        <div class="eco-node"><small>Connect</small><strong>WhatsApp & Analytics</strong><span>Direct communication & insight</span></div>
+      </div>`;
   }
 
   const nav = document.querySelector('.nav');
@@ -66,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entry.target.classList.add('is-visible');
         io.unobserve(entry.target);
       }
-    }), { threshold: 0.1, rootMargin: '0px 0px -45px' });
+    }), { threshold: 0.12, rootMargin: '0px 0px -55px' });
     reveals.forEach(el => io.observe(el));
   }
 
