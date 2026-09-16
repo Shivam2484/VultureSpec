@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(theme);
   }
 
+  // Apply the optional blue-electric + neon-lime SaaS color layer after the existing SaaS visual layer.
+  if (!document.querySelector('link[data-saas-color-theme]')) {
+    const colorTheme = document.createElement('link');
+    colorTheme.rel = 'stylesheet';
+    colorTheme.href = 'assets/css/saas-color.css?v=20260917';
+    colorTheme.dataset.saasColorTheme = 'true';
+    document.head.appendChild(colorTheme);
+  }
+
   // Keep the exact supplied Vulture Spec emblem as the visible brand mark and favicon source.
   const icon = document.querySelector('link[rel="icon"]');
   if (icon) {
