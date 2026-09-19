@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const icon = document.querySelector('link[rel="icon"]');
-  if (icon) { icon.href = 'assets/img/favicon.svg?v=20260919'; icon.type = 'image/svg+xml'; }
+  if (icon) { icon.href = '/assets/img/favicon-v2.svg?v=20260919'; icon.type = 'image/svg+xml'; }
 
   const addTeamLink = selector => document.querySelectorAll(selector).forEach(list => {
     if (list.querySelector('a[href="team.html"]')) return;
